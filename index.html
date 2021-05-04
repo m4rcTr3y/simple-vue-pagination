@@ -5,20 +5,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Vue.js</title>
+  <title>trevis simple vue pagination</title>
 
   <!-- Vue.js -->
-  <script src="res/vue@2.6.12.js"></script>
-
+  <script src="res/vue@2.6.12.js" deffer></script>
+ <script type="text/javascript" charset="utf-8">
+    Vue.config.productionTip = false;
+ </script>
 </head>
 
 <body>
   <div id="vue-app">
-  <div class="">
-  
+      Page: {{currentPage}}
+      
+     <br><br>perpage: <select v-model="count">
+          <option v-for="i in cst">{{i}}</option>
+      </select>
+    <div class="items">
+        <ul>
+            <li v-for="(item,ind) in compEl" v-bind:key="ind">{{item.text}}</li>
+        </ul>
+        
+        <div>
+            <a href="#" v-for="link in pageMap" @click="setPage(link.range, link.page)">{{link.page+1}}</a>
+        </div>
+    </div>
   </div>
-</div>
-  <!-- Project -->
   <script src="app.js"></script>
 </body>
 </html>
